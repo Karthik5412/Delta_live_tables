@@ -19,6 +19,17 @@ def dep_2():
 
     return df_low
 
+@dlt.table(name='agg_dep')
+def agg_dep() :
+    df = spark.readStream.table('dep_2')
+
+    df_agg = df.groupby(f.col('status'),f.col('order_date')).agg(
+        f.sum(f.col('total_amount')).alias('total_cost'),
+        f.avg(f.col('total_amount')).alias('avg_cost') 
+    )
+
+    return df_agg 
+
 
 
 
