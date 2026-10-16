@@ -10,11 +10,11 @@ rules = {
 
 # Creating an empty stream table
 
-dlt.create_streaming_table(name='sales_append', expect_all_or_drop=rules )
+dlt.create_streaming_table(name='sales_brz', expect_all_or_drop=rules )
 
 # East region table
 
-@dlt.append_flow(target='sales_append')
+@dlt.append_flow(target='sales_brz')
 def east() :
     df = spark.readStream.table('sales_east')
 
@@ -25,9 +25,9 @@ def east() :
     
 # West region table
 
-@dlt.append_flow(target='sales_append')
+@dlt.append_flow(target='sales_brz')
 def west() :
-    df = spark.readStream.table('sales_east')
+    df = spark.readStream.table('sales_west')
 
     df_reg = df.withColumn('region', lit('west'))
 
