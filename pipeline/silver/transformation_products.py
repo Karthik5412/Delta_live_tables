@@ -5,7 +5,7 @@ from pyspark.sql.types import *
 
 # Creating a Streaming View
 @dlt.view(name='products_slv_view')
-def sales_slv_view() :
+def product_slv_view() :
     df = spark.readStream.table('products_brz')
 
     df = df.withColumn('price', col('price').cast(IntegerType())) 
