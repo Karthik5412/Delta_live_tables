@@ -1,35 +1,35 @@
-import dlt 
+# import dlt 
 
-# Creating streaming table
+# # Creating streaming table
 
-@dlt.table(name='str_tab')
-def str_tab() :
-    df = spark.readStream.table('dlt_practice.source.orders')
+# @dlt.table(name='str_tab')
+# def str_tab() :
+#     df = spark.readStream.table('dlt_practice.source.orders')
 
-    return df
+#     return df
 
-# Creating Mat view
+# # Creating Mat view
 
-@dlt.table(name='mat_view')
-def mat_view() :
-    df = spark.read.table('dlt_practice.source.orders')
+# @dlt.table(name='mat_view')
+# def mat_view() :
+#     df = spark.read.table('dlt_practice.source.orders')
 
-    return df
+#     return df
 
 
-# Creating Streaming View 
+# # Creating Streaming View 
 
-@dlt.view(name='str_view')
-def str_view() :
-    df = spark.readStream.table('dlt_practice.source.orders')
+# @dlt.view(name='str_view')
+# def str_view() :
+#     df = spark.readStream.table('dlt_practice.source.orders')
 
-    return df
+#     return df
 
-# Creating Batch view 
+# # Creating Batch view 
 
-@dlt.table(name='bat_view')
-def bat_view() :
-    df = spark.read.table('dlt_practice.source.orders')
+# @dlt.table(name='bat_view')
+# def bat_view() :
+#     df = spark.read.table('dlt_practice.source.orders')
 
-    return df
+#     return df
 
