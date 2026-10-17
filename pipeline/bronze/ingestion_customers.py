@@ -10,7 +10,7 @@ rules = {
 
 # Creating Streaming Table
 
-@dlt.table(name='customer_brz')
+@dlt.table(name='customers_brz')
 @dlt.expect_all_or_drop(rules)
 def customer_brz() :
     df = spark.readStream.table('customers')
