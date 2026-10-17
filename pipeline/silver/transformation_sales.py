@@ -11,6 +11,17 @@ def sales_slv_view() :
 
     return df 
 
-#Creating Streaming Table
-# dlt.create
+# Creating Streaming Table
+dlt.create_streaming_table(name = 'sales_slv')
+
+
+# Creating Auto CDC 
+
+dlt.create_auto_cdc_flow(
+source='sales_slv_view',
+target='sales_slv',
+keys= ['sales_id'],
+sequence_by= 'sale_timestamp',
+stored_as_scd_type= 1
+)
 
