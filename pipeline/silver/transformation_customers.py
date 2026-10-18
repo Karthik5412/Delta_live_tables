@@ -8,7 +8,7 @@ from pyspark.sql.types import *
 def customers_slv_view() :
     df = spark.readStream.table('customers_brz')
 
-    df = df.withColumn('price', upper(col('customer_name'))) 
+    df = df.withColumn('customer_name', upper(col('customer_name'))) 
 
     return df 
 
